@@ -35,31 +35,30 @@ print(df.columns)
 
 # Maak een dictionary met de huidige namen als sleutels en de nieuwe namen als waarden
 rename_dict = {
-    'symbol': 'Symbool',
-    'orderId': 'Order ID',
-    'side': 'Transactie Type',
-    'qty': 'Hoeveelheid',
-    'orderPrice': 'Orderprijs',
-    'orderType': 'Ordertype',
-    'execType': 'Uitvoeringstype',
-    'closedSize': 'Gesloten Grootte',
-    'cumEntryValue': 'Cumulatieve Entry Waarde',
-    'avgEntryPrice': 'Gemiddelde Entry Prijs',
-    'cumExitValue': 'Cumulatieve Exit Waarde',
-    'avgExitPrice': 'Gemiddelde Exit Prijs',
-    'closedPnl': 'Gesloten PnL',
-    'fillCount': 'Vul Telling',
-    'leverage': 'Hefboom',
+    'list_symbol': 'Symbool',
+    'list_orderId': 'Order ID',
+    'list_side': 'Transactie Type',
+    'list_qty': 'Hoeveelheid',
+    'list_orderPrice': 'Orderprijs',
+    'list_orderType': 'Ordertype',
+    'list_execType': 'Uitvoeringstype',
+    'list_closedSize': 'Gesloten Grootte',
+    'list_cumEntryValue': 'Cumulatieve Entry Waarde',
+    'list_avgEntryPrice': 'Gemiddelde Entry Prijs',
+    'list_cumExitValue': 'Cumulatieve Exit Waarde',
+    'list_avgExitPrice': 'Gemiddelde Exit Prijs',
+    'list_closedPnl': 'Gesloten PnL',
+    'list_fillCount': 'Vul Telling',
+    'list_leverage': 'Hefboom',
     'list_createdTime': 'Aanmaaktijd',
     'list_updatedTime': 'Bijgewerkte Tijd'
 }
-
-# Converteer de tijdskolommen naar een leesbaar formaat voor Excel
-df['list_createdTime'] = pd.to_datetime(df['list_createdTime'], unit='ms').dt.strftime('%Y-%m-%d %H:%M:%S')
-df['list_updatedTime'] = pd.to_datetime(df['list_updatedTime'], unit='ms').dt.strftime('%Y-%m-%d %H:%M:%S')
-
 # Hernoem de kolommen
 df.rename(columns=rename_dict, inplace=True)
+
+# Converteer de tijdskolommen naar een leesbaar formaat voor Excel
+df['Aanmaaktijd'] = pd.to_datetime(df['Aanmaaktijd'], unit='ms').dt.strftime('%Y-%m-%d %H:%M:%S')
+df['Bijgewerkte Tijd'] = pd.to_datetime(df['Bijgewerkte Tijd'], unit='ms').dt.strftime('%Y-%m-%d %H:%M:%S')
 
 # Controleer de nieuwe kolomnamen
 print("Nieuwe kolomnamen:")
